@@ -5,13 +5,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         ArrayList<String> listaCorres = new ArrayList<String>();
-        int size = listaCorres.size();
-        boolean ans = listaCorres.isEmpty();
         Scanner scan1 = new Scanner (System.in);
         while (true) {
+            boolean ans = listaCorres.isEmpty();
+            int size = listaCorres.size();
             System.out.println("Lista de correspondências");
             System.out.println("Escolha uma opção?:");
-            System.out.println("1 - Mostra lista de correspondências e próxima carta a ser entregue. . \n2 - Inserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
+            System.out.println("1 - Mostra lista de correspondências e próxima carta a ser entregue. \n2 - Inserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
             int task = scan1.nextInt();
             if (task == 4) {
                 break;
@@ -19,9 +19,10 @@ public class Main {
             switch (task) {
                 case 1:
                     if (ans) {
-                        System.out.println("Lista vazia: " + size + "\n ");
+                        System.out.println("Lista vazia! " + "\n ");
                         break;
                     }
+                    System.out.println("Quantas cartas existem na lista " + size + "\n ");
                 case 2:
                     do {
                         System.out.println("Inserir nova carta? (y/n) ");
@@ -32,22 +33,22 @@ public class Main {
                             break;
                         }
                     } while (true);
-                    String[] arr = listaCorres.toArray(new String[0]);
-                    System.out.println("\n Array is " + Arrays.toString(arr) + "\n ");
+                  //  String[] arr = listaCorres.toArray(new String[0]);
+                 //   System.out.println("\n Array is " + Arrays.toString(arr) + "\n ");
                     var first = listaCorres.get(0);
                     var last = listaCorres.get(listaCorres.size() - 1);
-                    System.out.println("List is " + listaCorres);
-                    System.out.println("Próxima carta a ser entregue: " + last);
-                    System.out.println("Quantas cartas existem na lista " + size);
+                    System.out.println("List is " + listaCorres + "\n ");
+                    System.out.println("Próxima carta a ser entregue: " + last + "\n ");
+                    System.out.println("Quantas cartas existem na lista " + size + "\n ");
                     break;
                 case 3:
                     if (ans) {
-                        System.out.println("Lista vazia: " + size + "\n ");
+                        System.out.println("Lista vazia! " + "\n ");
                         break;
                     }
                     break;
                 default:
-                    System.out.println("Invalido!");
+                    System.out.println("Invalido!" + "\n ");
                     break;
             }
         }
