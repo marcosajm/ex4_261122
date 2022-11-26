@@ -8,34 +8,52 @@ public class Main {
         int size = listaCorres.size();
         boolean ans = listaCorres.isEmpty();
         Scanner scan1 = new Scanner (System.in);
-        System.out.println ("Lista de correspondências");
-        System.out.println ("Escolha uma opção?:");
-        System.out.println ("1 - Mostra listade correspondências. \n2 - Iserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
-        int task = scan1.nextInt();
-        if (task==1) {
-            System.out.println ("Contents of Employees:" + listaCorres);
-        } else if (task==2) {
-            do {
-                System.out.println("Current list is " + listaCorres);
-                System.out.println("Add more? (y/n) ");
-                if (scan1.next().startsWith("y")) {
-                    System.out.println("Enter : ");
-                    listaCorres.add(scan1.next());
-                } else {
+        while (true) {
+            System.out.println("Lista de correspondências");
+            System.out.println("Escolha uma opção?:");
+            System.out.println("1 - Mostra lista de correspondências e próxima carta a ser entregue. . \n2 - Inserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
+            int task = scan1.nextInt();
+            if (task == 4) {
+                break;
+            }
+            switch (task) {
+                case 1:
+                    if (ans) {
+                        System.out.println("Lista vazia: " + size + "\n ");
+                        break;
+                    }
+                    System.out.println("Próxima carta a ser entregue: " + size);
+                    System.out.println("Quantas cartas existem na lista " + listaCorres);
+                    var first = listaCorres.get(0);
+                    var last = listaCorres.get(listaCorres.size() - 1);
+                    System.out.println("\nPrimeira : " + first + ", Ultima : " + last);
+                    System.out.println("List is " + listaCorres);
+                case 2:
+                    do {
+                        System.out.println("Inserir outra carta? (y/n) ");
+                        if (scan1.next().startsWith("y")) {
+                            System.out.println("Entre com a carta : ");
+                            listaCorres.add(scan1.next());
+                        } else {
+                            break;
+                        }
+                    } while (true);
+                    String[] arr = listaCorres.toArray(new String[0]);
+                    System.out.println("\n Array is " + Arrays.toString(arr) + "\n ");
                     break;
-                }
-            } while (true);
-            System.out.println("List is " + listaCorres);
-            String[] arr = listaCorres.toArray(new String[0]);
-            System.out.println("Array is " + Arrays.toString(arr));
+                case 3:
+                    if (ans) {
+                        System.out.println("Lista vazia: " + size + "\n ");
+                        break;
+                    }
+                    break;
+                default:
+                    System.out.println("Invalido!");
+                    break;
+            }
         }
-        System.out.print("ArrayList: " + listaCorres);
-        var first = Integer.parseInt(listaCorres.get(0));
-        var last = Integer.parseInt(listaCorres.get(listaCorres.size() - 1));
-
-        System.out.println("\nFirst : " + first
-                + ", Last : " + last);
-
+    }
+}
        //     if (sc.next().equalsIgnoreCase("N")) {
       //          if (ans) {
       //              System.out.println("Lista fazia: " + size);
@@ -49,8 +67,7 @@ public class Main {
        //     }
       //      listaCorres.add(sc.next());
       //  }
-    }
-}
+
    // Exercício 4:
   //  Crie um programa que cria e gera uma lista de cartas
   //          (correspondência). Deve ter em consideração que as cartas são
