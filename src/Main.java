@@ -22,15 +22,9 @@ public class Main {
                         System.out.println("Lista vazia: " + size + "\n ");
                         break;
                     }
-                    System.out.println("Próxima carta a ser entregue: " + size);
-                    System.out.println("Quantas cartas existem na lista " + listaCorres);
-                    var first = listaCorres.get(0);
-                    var last = listaCorres.get(listaCorres.size() - 1);
-                    System.out.println("\nPrimeira : " + first + ", Ultima : " + last);
-                    System.out.println("List is " + listaCorres);
                 case 2:
                     do {
-                        System.out.println("Inserir outra carta? (y/n) ");
+                        System.out.println("Inserir nova carta? (y/n) ");
                         if (scan1.next().startsWith("y")) {
                             System.out.println("Entre com a carta : ");
                             listaCorres.add(scan1.next());
@@ -40,6 +34,11 @@ public class Main {
                     } while (true);
                     String[] arr = listaCorres.toArray(new String[0]);
                     System.out.println("\n Array is " + Arrays.toString(arr) + "\n ");
+                    var first = listaCorres.get(0);
+                    var last = listaCorres.get(listaCorres.size() - 1);
+                    System.out.println("List is " + listaCorres);
+                    System.out.println("Próxima carta a ser entregue: " + last);
+                    System.out.println("Quantas cartas existem na lista " + size);
                     break;
                 case 3:
                     if (ans) {
