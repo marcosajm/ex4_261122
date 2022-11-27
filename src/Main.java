@@ -8,7 +8,7 @@ public class Main {
             boolean ans = listaCorres.isEmpty();
             int size = listaCorres.size();
             System.out.println("Lista de correspondências");
-            System.out.println("Escolha uma opção:");
+            System.out.println("Escolha uma opção:(1 - 4)");
             System.out.println("1 - Mostra lista de correspondências e próxima carta a ser entregue. \n2 - Inserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
             int task = scan1.nextInt();
             if (task == 4) {
@@ -19,8 +19,7 @@ public class Main {
                     if (ans) {
                         System.out.println("Lista vazia! " + "\n ");
                         break;
-                    }
-                    var first = listaCorres.get(0);
+                    }                   
                     var last = listaCorres.get(listaCorres.size() - 1);
                     System.out.println("List is " + listaCorres + "\n ");
                     System.out.println("Próxima carta a ser entregue: " + last + "\n ");
@@ -28,11 +27,10 @@ public class Main {
                     break;
                 case 2:
                     do {
+                        System.out.println("Entre com a carta: ");
+                        listaCorres.add(scan1.next());
                         System.out.println("Inserir nova carta? (y/n) " + "\n ");
-                        if (scan1.next().startsWith("y")) {
-                            System.out.println("Entre com a carta: ");
-                            listaCorres.add(scan1.next());
-                        } else {
+                        if (scan1.next().equalsIgnoreCase("N")) {
                             break;
                         }
                     } while (true);
@@ -43,17 +41,16 @@ public class Main {
                         break;
                     }
                     do {
-                        System.out.println("Apagar carta? (y/n) ");
-                        if (scan1.next().startsWith("y")) {
-                            System.out.println("Entre com a carta: " + "\n ");
-                            listaCorres.remove(scan1.next());
-                        } else {
+                        System.out.println("Entre com a carta: " + "\n ");
+                        listaCorres.remove(scan1.next());
+                        System.out.println("Apagar outra carta? (y/n) ");
+                        if (scan1.next().equalsIgnoreCase("N")) {
                             break;
                         }
                     } while (true);
                     break;
                 default:
-                    System.out.println("Invalido!" + "\n ");
+                    System.out.println("Número invalido!" + "\n ");
                     break;
             }
         }
