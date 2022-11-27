@@ -8,7 +8,7 @@ public class Main {
             boolean ans = listaCorres.isEmpty();
             int size = listaCorres.size();
             System.out.println("Lista de correspondências");
-            System.out.println("Escolha uma opção?:");
+            System.out.println("Escolha uma opção:");
             System.out.println("1 - Mostra lista de correspondências e próxima carta a ser entregue. \n2 - Inserir nova carta. \n3 - Apagar carta. \n4 - Sair." + "\n ");
             int task = scan1.nextInt();
             if (task == 4) {
@@ -51,7 +51,7 @@ public class Main {
                             break;
                         }
                     } while (true);
-
+                    break;
                 default:
                     System.out.println("Invalido!" + "\n ");
                     break;
@@ -59,7 +59,6 @@ public class Main {
         }
     }
 }
-
    // Exercício 4:
   //  Crie um programa que cria e gera uma lista de cartas
   //          (correspondência). Deve ter em consideração que as cartas são
